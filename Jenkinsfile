@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters{
+      string(name:'Branch_Name', defaultValue:'main', description:'Enter the branch to checkout')
+      choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: 'choose a number')
+    }
     stages {
         stage('Hello') {
             steps {
@@ -26,7 +30,6 @@ pipeline {
                 checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/feature_gunjanm']], extensions: [], userRemoteConfigs: [[credentialsId: 'ibt', url: 'https://github.com/IBT-learning/ibt-maven.git']])
                 sh 'ls -lrt'
             }
-
         }
     }
 }
