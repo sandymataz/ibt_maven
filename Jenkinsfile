@@ -30,6 +30,7 @@ pipeline {
                 checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/$Branch_Name']], extensions: [], userRemoteConfigs: [[credentialsId: 'ibt', url: 'https://github.com/IBT-learning/ibt-maven.git']])
                 sh 'ls -lrt'
                 sh 'echo $Branch_Name $CHOICES'
+                sh 'echo trying hook'
             }
         }
     }
