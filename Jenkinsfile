@@ -49,4 +49,10 @@ pipeline {
                            }
                        }
     }
+    post{
+        always{
+            emailext body: 'test', subject: 'test', to: 'gunjanvm7@gmail.com'
+            echo "Build successful"
+        }
+    }
 }
