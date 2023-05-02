@@ -1,9 +1,6 @@
 pipeline {
 agent any
-environment {
-            sonarScan = tool 'ibt-sonarqube'
-            version = '1.1'
-       }
+
 stages {
     stage ('Git Checkout') {
         steps{
@@ -32,9 +29,11 @@ stages {
                  }
              }
        stage('SonarQube Analysis') {
+       environment {
+            sonarScan = tool 'ibt-sonarqube'
+        }
         steps{
            withSonarQubeEnv(credentialsId: 'student-sonar-token', installationName: 'IBT sonarqube') {
-             echo "${env.version}"
              sh "${env.sonarScan}/bin/sonar-scanner"
            }
          }
