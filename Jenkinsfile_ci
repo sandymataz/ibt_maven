@@ -34,7 +34,7 @@ stages {
        stage('SonarQube Analysis') {
         steps{
            withSonarQubeEnv(credentialsId: 'student-sonar-token', installationName: 'IBT sonarqube') {
-             echo ${env.version}
+             echo "${env.version}"
              sh "${env.sonarScan}/bin/sonar-scanner"
            }
          }
