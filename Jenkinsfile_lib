@@ -15,6 +15,12 @@ stages {
                 }
             }
         }
+        stage('SonarScan')
+        {
+            steps {
+                sonarScan()
+            }
+        }
         stage ('Package'){
                                  steps{
                                      withMaven(maven: 'maven_3.8') {
