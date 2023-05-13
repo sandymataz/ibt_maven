@@ -1,4 +1,4 @@
--
+---
 name: Install and configure tomcat server for deployment
 hosts: nodes
 remote_user: root
