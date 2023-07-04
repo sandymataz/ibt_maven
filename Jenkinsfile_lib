@@ -15,19 +15,20 @@ stages {
                 }
             }
         }
-        stage('SonarScan')
-        {
-            steps {
-                sonarScan()
-            }
-        }
-        stage ('Package'){
+     stage ('Package'){
                                  steps{
                                      withMaven(maven: 'maven_3.8') {
                                          sh 'mvn package'
                                      }
                                  }
                              }
+        stage('SonarScan')
+        {
+            steps {
+                sonarScan()
+            }
+        }
+       
         stage ('DependencyCHeck'){
             steps{
                 DependencyCheck()
