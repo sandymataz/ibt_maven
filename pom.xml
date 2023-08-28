@@ -18,6 +18,14 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>a0n5tucjjiuir-artifactory-primary-0-releases</name>
+      <url>https://ibt.jfrog.io/artifactory/ibt-libs-release</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
